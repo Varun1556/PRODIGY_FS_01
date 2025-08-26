@@ -1,0 +1,17 @@
+# .gitignore (this is a text file)
+
+# Ignore environment file with secrets
+.env
+
+# Ignore local configuration  
+config.php
+
+# Ignore vendor dependencies (if you add them later)
+/vendor/
+
+# Ignore log files
+*.log
+
+# Ignore system files
+.DS_Store
+.htaccess

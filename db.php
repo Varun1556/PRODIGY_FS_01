@@ -1,7 +1,16 @@
 <?php
-$dsn = 'mysql:host=127.0.0.1;dbname=form_db;charset=utf8mb4';
-$user = 'root';      // WAMP default
-$pass = '';          // WAMP default is empty; change if you set one
+// Load environment variables
+$env = [];
+if (file_exists(__DIR__ . '/.env')) {
+    $env = parse_ini_file(__DIR__ . '/.env');
+}
+
+$host = $env['DB_HOST'] ?? '127.0.0.1';
+$dbname = $env['DB_NAME'] ?? 'form_db';
+$user = $env['DB_USER'] ?? 'root';
+$pass = $env['DB_PASS'] ?? '';
+
+$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
 try {
   $pdo = new PDO($dsn, $user, $pass, [
